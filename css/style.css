@@ -1,0 +1,100 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(235, 243, 158);
+    background-image: url(../img/fone.png);
+    background-size: cover;
+    color:rgb(42, 8, 80);
+    font-family: "Pattaya", sans-serif;
+}
+
+.container {
+    max-width: 1240px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0 15px;
+
+}
+
+.map {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 5px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: rgb(23, 7, 66);
+}
+
+.branch__block {
+    z-index: 10;
+    max-width: 350px;
+    min-height: 150px;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid rgb(55, 41, 105);
+    background: lightgrey;
+}
+
+.branch {
+    position: relative;
+    display: flex;
+    width: 50%;
+}
+
+
+
+.branch::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: rgb(44, 9, 90);
+    z-index: -1;
+}
+
+.branch:nth-child(even) {
+    margin-left: auto;
+    justify-content: flex-end;
+
+}
+
+.branch:nth-child(odd) {
+    margin-right: auto;
+    justify-content: flex-start;
+}
+
+.branch__block:has(.branch__btn:checked) {
+    background: lightgreen;
+    border-color: green;
+}
+
+@media(max-width:740px) {
+    .branch::after {
+        background: transparent;
+    }
+    .branch {
+        width: 80%;
+        margin-bottom: 50px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}
